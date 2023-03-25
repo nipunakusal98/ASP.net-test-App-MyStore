@@ -72,7 +72,8 @@ namespace MyStore.Pages.Clients
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    String sql = "UPDATE clients SET name=@name, email=@email, phone=@phone, address=@address WHERE id=@ID";
+                    String sql = "UPDATE clients SET name=@name, email=@email, phone=@phone, address=@address" +
+                        " WHERE id=@id";
 
                     using (SqlCommand cmd = new SqlCommand(sql,conn))
                     {
@@ -96,7 +97,7 @@ namespace MyStore.Pages.Clients
                 errorMessage = ex.Message;
                 return;
             }
-            Response.Redirect("Clients/Clients");
+            Response.Redirect("Clients/");
         }
     }
 }
